@@ -1,0 +1,6 @@
+node_modules/
+strasbourg_deco.db
+strasbourg_deco.db-shm
+strasbourg_deco.db-wal
+.env
+.DS_Store
