@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maisons Décorées - Strasbourg</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-home"></i>
+                <h1>Maisons Décorées</h1>
+                <span>Strasbourg</span>
+            </div>
+            <nav>
+                <a href="#" class="nav-link active" data-section="accueil">Accueil</a>
+                <a href="#" class="nav-link" data-section="carte">Carte</a>
+                <a href="#" class="nav-link" data-section="ajouter">Ajouter</a>
+                <a href="#" class="nav-link" data-section="apropos">À propos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="accueil" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>Découvrez les plus belles maisons décorées de Strasbourg</h2>
+                    <p>Partagez et notez les décorations de Noël dans votre quartier</p>
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Rechercher une adresse ou un quartier...">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="quartier-filters">
+                        <span class="filter-label">Filtrer par quartier:</span>
+                        <select id="quartier-filter">
+                            <option value="">Tous les quartiers</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="maisons-grid" id="maisons-list">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Chargement des maisons...</p>
+                </div>
+            </div>
+
+            <div class="pagination" id="pagination"></div>
+        </section>
+
+        <section id="carte" class="section">
+            <div class="map-container">
+                <div id="map" class="map">
+                    <p class="map-placeholder">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Carte des maisons décorées
+                        <br><small>Utilisez la recherche ou ajoutez des maisons pour voir la carte</small>
+                    </p>
+                </div>
+                <div class="map-controls">
+                    <button id="center-map"><i class="fas fa-crosshairs"></i> Centrer sur Strasbourg</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="ajouter" class="section">
+            <div class="form-container">
+                <h2>Ajouter une maison décorée</h2>
+                <form id="add-maison-form" class="maison-form">
+                    <div class="form-group">
+                        <label for="adresse">Adresse *</label>
+                        <input type="text" id="adresse" name="adresse" required placeholder="Ex: 12 Rue des Orfèvres">
+                    </div>
+                    <div class="form-group">
+                        <label for="quartier">Quartier *</label>
+                        <select id="quartier" name="quartier" required>
+                            <option value="">Sélectionnez un quartier</option>
+                            <option value="Centre-Ville">Centre-Ville</option>
+                            <option value="Petite France">Petite France</option>
+                            <option value="Krutenau">Krutenau</option>
+                            <option value="Neustadt">Neustadt</option>
+                            <option value="Saint-Jean">Saint-Jean</option>
+                            <option value="Montagne Verte">Montagne Verte</option>
+                            <option value="Orangerie">Orangerie</option>
+                            <option value="Contades">Contades</option>
+                            <option value="Koenigshoffen">Koenigshoffen</option>
+                            <option value="Cronenbourg">Cronenbourg</option>
+                            <option value="Hohberg">Hohberg</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="3" placeholder="Décrivez la décoration..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="image_url">URL de l'image (optionnel)</label>
+                        <input type="url" id="image_url" name="image_url" placeholder="https://exemple.com/image.jpg">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="latitude">Latitude (optionnel)</label>
+                            <input type="number" id="latitude" name="latitude" step="0.000001" placeholder="48.5839">
+                        </div>
+                        <div class="form-group">
+                            <label for="longitude">Longitude (optionnel)</label>
+                            <input type="number" id="longitude" name="longitude" step="0.000001" placeholder="7.7521">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Ajouter la maison
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section id="apropos" class="section">
+            <div class="about-container">
+                <h2>À propos</h2>
+                <div class="about-content">
+                    <p>Ce site a été créé pour permettre aux habitants de Strasbourg de partager et de découvrir les plus belles maisons décorées pendant la période des fêtes.</p>
+                    <p>Chacun peut contribuer en ajoutant une maison et en notant celles qui existent déjà.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-search"></i>
+                            <h3>Recherchez</h3>
+                            <p>Trouvez des maisons par quartier ou adresse</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-plus"></i>
+                            <h3>Ajoutez</h3>
+                            <p>Contribuez en ajoutant de nouvelles maisons</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-star"></i>
+                            <h3>Notez</h3>
+                            <p>Donnez votre avis sur les décorations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="maison-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="note-modal" class="modal">
+        <div class="modal-content modal-small">
+            <span class="close-modal">&times;</span>
+            <h2>Ajouter une note</h2>
+            <form id="add-note-form" class="note-form">
+                <input type="hidden" id="note-maison-id" name="maison_id">
+                <div class="form-group">
+                    <label for="note">Note (1-5 étoiles)</label>
+                    <div class="star-rating" id="star-rating">
+                        <i class="fas fa-star" data-value="1"></i>
+                        <i class="fas fa-star" data-value="2"></i>
+                        <i class="fas fa-star" data-value="3"></i>
+                        <i class="fas fa-star" data-value="4"></i>
+                        <i class="fas fa-star" data-value="5"></i>
+                    </div>
+                    <input type="hidden" id="note-value" name="note" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="commentaire">Commentaire (optionnel)</label>
+                    <textarea id="commentaire" name="commentaire" rows="3" placeholder="Votre avis sur cette décoration..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-check"></i> Soumettre
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 - Maisons Décorées Strasbourg. Tous droits réservés.</p>
+            <p>Créé avec <i class="fas fa-heart"></i> pour la communauté strasbourgeoise</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</body>
+</html>
