@@ -1,0 +1,20 @@
+{
+  "name": "strasbourg-deco",
+  "version": "1.0.0",
+  "description": "Site web pour lister et noter les maisons décorées à Strasbourg",
+  "scripts": {
+    "start": "cd backend && node server.js",
+    "dev": "cd backend && npm run dev",
+    "install:all": "cd backend && npm install",
+    "setup": "cd backend && npm install && echo 'Backend prêt'"
+  },
+  "keywords": [
+    "strasbourg",
+    "décoration",
+    "noël",
+    "maisons",
+    "note"
+  ],
+  "author": "",
+  "license": "MIT"
+}
